@@ -35,13 +35,6 @@
 <body>
 
 
-<h1>
-    <?php
-
-    //this how to print some data;
-    //echo $data['site_name'];
-
-    ?> </h1>
 
 <div class="container" align="center" style="border:1px solid #cecece">
 
@@ -50,10 +43,22 @@
              class="img-rounded">
 
         <!--
-        <h2 class="form-signin-heading">TO-DO List </h2>
+        Added to display success message Keka
         -->
+        <p><br>
+            <!--
+           Added to display success message Keka
+           -->
+            <?php
+            if(!empty($_GET['message'])) {
+                $message = $_GET['message'];
+                echo $message;
+            }
+            ?>
+        </p>
 
         <p><u> For Existing User </u></p>
+
 
         <label for="email" class="sr-only">Email address</label>
         <input type="text" id="email" name="email" placeholder="Email address" required autofocus>
