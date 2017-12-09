@@ -15,7 +15,9 @@ class accountsController extends http\controller
     //to call the show function the url is index.php?page=task&action=show
     public static function show()
     {
-        $record = accounts::findOne($_REQUEST['id']);
+        session_start();
+        $sessionId = $_SESSION["userID"];
+        $record = accounts::findOne($sessionId);
         self::getTemplate('show_account', $record);
     }
 
@@ -39,6 +41,11 @@ class accountsController extends http\controller
         //https://www.sitepoint.com/why-you-should-use-bcrypt-to-hash-stored-passwords/
         //USE THE ABOVE TO SEE HOW TO USE Bcrypt
         self::getTemplate('register');
+    }
+
+    public static function welcome()
+    {
+        self::getTemplate('welcome');
     }
 
     //this is the function to save the user the new user for registration
@@ -135,6 +142,12 @@ class accountsController extends http\controller
                 $_SESSION["userID"] = $user->id;
                 //forward the user to the show all todos page
                 print_r($_SESSION);
+                //Added to fetch name of user to display on welcome.php
+                $user = accounts::findOne($user->id);
+
+                $fname = $user->fname ;
+                $lname = $user->lname;
+                header("Location: index.php?page=accounts&action=welcome&fname=$fname&lname=$lname");
             } else {
                 echo 'password does not match';
             }
