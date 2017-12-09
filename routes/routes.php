@@ -145,6 +145,14 @@ class routes
         $route->controller = 'accountsController';
         $route->method = 'store';
         $routes[] = $route;
+        //To show welcome page
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'welcome';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'welcome';
+        $routes[] = $route;
 
 
         return $routes;
