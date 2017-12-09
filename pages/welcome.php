@@ -36,7 +36,7 @@
 
         <div class="list-group">
             <a href="index.php?page=accounts&action=show" class="list-group-item">ACCOUNT DETAILS</a>
-            <a href="#" class="list-group-item">TO-DO DETAILS</a>
+            <a href="index.php?page=tasks&action=all" class="list-group-item">TO-DO DETAILS</a>
 
         </div>
 
