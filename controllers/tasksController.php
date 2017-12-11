@@ -22,15 +22,25 @@ class tasksController extends http\controller
 
     public static function all()
     {
-        $records = todos::findAll();
+        //$records = todos::findAll();
         session_start();
 
         $userID = $_SESSION['userID'];
-
+        //print($userID);
         $records = todos::findTasksbyID($userID);
+        //print_r($records);
+        //To handle null records
+        if ($records == False){
+
+            $msg = "No TO-DO items available!";
+            header("Location: index.php?page=errors&action=nullToDo&msg=$msg");
+
+        }
+        else {
 
         self::getTemplate('all_tasks', $records);
 
+        }
     }
     //to call the show function the url is called with a post to: index.php?page=task&action=create
     //this is a function to create new tasks
