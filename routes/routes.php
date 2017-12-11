@@ -145,7 +145,8 @@ class routes
         $route->controller = 'accountsController';
         $route->method = 'store';
         $routes[] = $route;
-        //To show welcome page
+
+        //Added to show welcome page
         $route = new route();
         $route->http_method = 'GET';
         $route->action = 'welcome';
@@ -153,6 +154,16 @@ class routes
         $route->controller = 'accountsController';
         $route->method = 'welcome';
         $routes[] = $route;
+
+        //Added to show error page when To-Do list is null
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'nullToDo';
+        $route->page = 'errors';
+        $route->controller = 'errorsController';
+        $route->method = 'nullToDo';
+        $routes[] = $route;
+
 
 
         return $routes;
