@@ -16,10 +16,11 @@
 </head>
 
 <body>
-
+<?php include("header.php");?>
 <?php
 //this is how you print something
-
+//print "Keka";
+echo "<br>";
 print utility\htmlTable::genarateTableFromMultiArray($data);
 
 
