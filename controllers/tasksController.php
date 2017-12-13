@@ -49,7 +49,21 @@ class tasksController extends http\controller
 
     public static function create()
     {
-        print_r($_POST);
+        session_start();
+        $ownerId = $_SESSION["userID"];
+
+        //print_r($_POST);
+        $task = new todo();
+        $task->owneremail = $_POST['owneremail'];
+        $task->ownerid = $ownerId ;
+        $task->createddate = $_POST['cdate'];
+        $task->duedate = $_POST['duedate'];
+        $task->message = $_POST['msg'];
+        $task->isdone = $_POST['done'];
+
+        $task->save();
+       header("Location: index.php?page=tasks&action=all");
+
     }
 
     //this is the function to view edit record form
@@ -81,6 +95,13 @@ class tasksController extends http\controller
         $record->delete();
         print_r($_POST);
 
+    }
+
+    public static function gettaskform()
+    {
+        //https://www.sitepoint.com/why-you-should-use-bcrypt-to-hash-stored-passwords/
+        //USE THE ABOVE TO SEE HOW TO USE Bcrypt
+        self::getTemplate('new_task');
     }
 
 }

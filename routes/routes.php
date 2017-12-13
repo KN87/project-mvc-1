@@ -164,6 +164,24 @@ class routes
         $route->method = 'nullToDo';
         $routes[] = $route;
 
+        //this is the route to fetch the new task form
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'gettaskform';
+        $route->page = 'todos';
+        $route->controller = 'tasksController';
+        $route->method = 'gettaskform';
+        $routes[] = $route;
+
+        //this is the route to submit the new task form
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'create';
+        $route->page = 'todos';
+        $route->controller = 'tasksController';
+        $route->method = 'create';
+        $routes[] = $route;
+
 
 
         return $routes;

@@ -10,15 +10,19 @@ class todos extends database\collection
 
 
         $tableName = get_called_class();
-        $sql = 'SELECT * FROM ' . $tableName . ' WHERE id = ?';
+        //print("Table: ".$tableName);
+        //print("UserId: ".$userid);
+        $sql = 'SELECT * FROM ' . $tableName . ' WHERE ownerid = ?';
 
 
         //grab the only record for find one and return as an object
         $recordsSet = self::getResults($sql, $userid);
 
         if (is_null($recordsSet)) {
+            //print("Inside false");
             return FALSE;
         } else {
+            //print("Inside retrun");
             return $recordsSet;
         }
     }
