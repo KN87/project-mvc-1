@@ -88,12 +88,42 @@ class tasksController extends http\controller
     }
 
     //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.
-    //One form is the todo and the other is just for the delete button
+
     public static function delete()
     {
+
+       // $data = $_POST['select'];
+        //if(!empty($data)){
+         //   $record = todos::findAllTasksbyID($data);
+          //  self::getTemplate('edit_task', $record);
+          //   }
+
+
+        //$fields = '('.implode(',', $fieldList) .')';
         $record = todos::findOne($_REQUEST['id']);
         $record->delete();
-        print_r($_POST);
+        //print_r($_POST);
+        header("Location: index.php?page=tasks&action=all");
+
+        //if(isset($_POST['delete'])){
+
+            //if(!empty($_POST['select'])) {
+                // Counting number of checked checkboxes.
+                //$checked_count = count($_POST['select']);
+                // echo "You have selected following ".$checked_count." option(s): <br/>";
+                // Loop to store and display values of individual checked checkbox.
+                //foreach($_POST['select'] as $selected) {
+                //    echo "<p>".$selected ."</p>";
+                //}
+
+
+           // }
+            //else{
+            //    echo "<b>Please Select Atleast One Option.</b>";
+            //}
+        //}
+
+
 
     }
 

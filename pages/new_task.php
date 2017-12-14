@@ -54,8 +54,8 @@ $ownerId = $_SESSION["userID"];
 
             <label for="done" class="col-sm-2 col-form-label">Is Done:</label>
             <div class="col-sm-10" align="left">
-                <label class="radio-inline"><input type="radio" id="done" name="done"> 0 </label>
-                <label class="radio-inline"><input type="radio" id="done" name="done"> 1 </label>
+                <label class="radio-inline"><input type="radio" id="done" name="done" value="0"> 0 </label>
+                <label class="radio-inline"><input type="radio" id="done" name="done" value="1"> 1 </label>
 
             </div>
 

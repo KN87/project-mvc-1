@@ -13,7 +13,7 @@ abstract class model
             echo 'failed validation';
             exit;
         }
-
+        echo 'failed 1';
 
         if ($this->id != '') {
             $sql = $this->update();
@@ -94,6 +94,17 @@ abstract class model
         $statement = $db->prepare($sql);
         $statement->execute();
     }
+
+    /*public function deleteAll()
+    {
+        $db = dbConn::getConnection();
+        $modelName = static::$modelName;
+        $tableName = $modelName::getTablename();
+        $sql = 'DELETE FROM ' . $tableName . ' WHERE id in' . $this->id;
+        $statement = $db->prepare($sql);
+        $statement->execute();
+    }*/
+
 }
 
 ?>
