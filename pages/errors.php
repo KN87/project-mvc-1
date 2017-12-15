@@ -17,7 +17,7 @@
 </head>
 <body>
 
-
+<?php include("header.php");?>
 <div class="container">
 
     <form class="form-signin">
@@ -31,6 +31,7 @@
             ?>
         </h2>
     </form>
+    <a href="index.php?page=todos&action=gettaskform" class="btn btn-primary" role="button">Add New</a>
 </div>
 </body>
 </html>
