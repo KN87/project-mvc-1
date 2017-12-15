@@ -104,12 +104,26 @@ class tasksController extends http\controller
           //  self::getTemplate('edit_task', $record);
           //   }
 
+        session_start();
+        $userID = $_SESSION['userID'];
 
-        //$fields = '('.implode(',', $fieldList) .')';
         $record = todos::findOne($_REQUEST['id']);
         $record->delete();
         //print_r($_POST);
-        header("Location: index.php?page=tasks&action=all");
+
+        //print($userID);
+        // Added to see if user has any more tasks left. Else show the page for No to-do items.
+        $records = todos::findTasksbyID($userID);
+        if ($records == False){
+
+            $msg = "No TO-DO items available!";
+            header("Location: index.php?page=errors&action=nullToDo&msg=$msg");
+
+        }
+        else{
+            header("Location: index.php?page=tasks&action=all");
+        }
+
 
         //if(isset($_POST['delete'])){
 
