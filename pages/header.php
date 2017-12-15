@@ -17,6 +17,7 @@
 </head>
 <body>
 
+
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid" >
         <div class="navbar-header">
@@ -24,7 +25,7 @@
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Home</a></li>
+            <li><a href="index.php?page=accounts&action=homelink"><span class="glyphicon glyphicon-arrow-left"></span> Home</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
         </ul>

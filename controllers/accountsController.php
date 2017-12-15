@@ -14,7 +14,7 @@ class accountsController extends http\controller
     //each method in the controller is named an action.
     //to call the show function the url is index.php?page=task&action=show
     public static function show()
-    {
+    { //Changed to use session id for logged in user -KEKA
         session_start();
         $sessionId = $_SESSION["userID"];
         $record = accounts::findOne($sessionId);
@@ -155,6 +155,20 @@ class accountsController extends http\controller
         }
 
 
+
+
+    }
+
+    public static function homelink(){
+
+
+        session_start();
+        $userID = $_SESSION['userID'];
+        $user = accounts::findOne($userID);
+
+        $fname = $user->fname ;
+        $lname = $user->lname;
+        header("Location: index.php?page=accounts&action=welcome&fname=$fname&lname=$lname");
 
 
     }
