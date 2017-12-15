@@ -27,7 +27,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="index.php?page=accounts&action=homelink"><span class="glyphicon glyphicon-arrow-left"></span> Home</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Back</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+            <li><a href="index.php?page=accounts&action=logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
         </ul>
     </div>
 </nav>

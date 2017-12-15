@@ -173,4 +173,18 @@ class accountsController extends http\controller
 
     }
 
+    public static function logout(){
+
+
+        session_start();
+
+        unset($_SESSION['userID']);
+        session_destroy();
+
+        header("Location: index.php?message=Logged out Successfully..Please log in again");
+       // header("Location: index.php?page=accounts&action=welcome&fname=$fname&lname=$lname");
+
+
+    }
+
 }
