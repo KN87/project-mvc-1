@@ -14,13 +14,22 @@ abstract class model
             exit;
         }
         echo 'failed 1';
-
+        /*
         if ($this->id != '') {
             $sql = $this->update();
         } else {
             $sql = $this->insert();
             $INSERT = TRUE;
+        } */
+        if(is_null($this->id)){
+            $sql = $this->insert();
+            $INSERT = TRUE;
         }
+        else{
+            echo 'hello'.$this->isdone.'<br>';
+            $sql = $this->update();
+        }
+        echo $sql;
         $db = dbConn::getConnection();
         $statement = $db->prepare($sql);
         $array = get_object_vars($this);
@@ -75,7 +84,11 @@ abstract class model
         $comma = " ";
         $sql = 'UPDATE ' . $tableName . ' SET ';
         foreach ($array as $key => $value) {
-            if (!empty($value)) {
+            echo 'key is: '.$key;
+            echo 'value is: '.$value;
+            //if (!empty($value))
+            if(isset($value))
+            {
                 $sql .= $comma . $key . ' = "' . $value . '"';
                 $comma = ", ";
             }
