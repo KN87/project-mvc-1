@@ -86,6 +86,7 @@ abstract class model
         foreach ($array as $key => $value) {
             echo 'key is: '.$key;
             echo 'value is: '.$value;
+            //to fix error to save 0 isdone value
             //if (!empty($value))
             if(isset($value))
             {
