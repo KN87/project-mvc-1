@@ -29,12 +29,12 @@ $ownerId = $_SESSION["userID"];
         <div class="form-group row">
             <label for="owneremail" class="col-sm-2 col-form-label">Owner Email:</label>
             <div class="col-sm-10">
-                <input type="owneremail" class="form-control" id="owneremail" name="owneremail" placeholder="Enter Email xyz@abc.com">
+                <input type="text" class="form-control" id="owneremail" name="owneremail" placeholder="Enter Email xyz@abc.com">
             </div>
 
-            <label for="lname" class="col-sm-2 col-form-label">Owner Id:</label>
+            <label for="ownerid" class="col-sm-2 col-form-label">Owner Id:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="lname" name="lname" placeholder="<?php echo $ownerId; ?>" readonly >
+                <input type="text" class="form-control" id="ownerid" name="ownerid" placeholder="<?php echo $ownerId; ?>" readonly >
             </div>
 
             <label for="cdate" class="col-sm-2 col-form-label">Created Date:</label>

@@ -46,32 +46,38 @@ class tasksController extends http\controller
     //this is a function to create new tasks
 
     //you should check the notes on the project posted in moodle for how to use active record here
-
+    // To handle new task & update existing tasks
     public static function create()
     {
         session_start();
         $ownerId = $_SESSION["userID"];
 
-        //print_r($_POST);
         $task = new todo();
+        if (isset($_REQUEST['id']))
+            {
+                $task->id = $_REQUEST['id'];
+            }
         $task->owneremail = $_POST['owneremail'];
         $task->ownerid = $ownerId ;
         $task->createddate = $_POST['cdate'];
         $task->duedate = $_POST['duedate'];
         $task->message = $_POST['msg'];
         $task->isdone = $_POST['done'];
-
+        //print_r($_POST);
         $task->save();
-       header("Location: index.php?page=tasks&action=all");
+        header("Location: index.php?page=tasks&action=all");
+
+
 
     }
 
     //this is the function to view edit record form
     public static function edit()
     {
-        $record = todos::findOne($_REQUEST['id']);
+        //$record = todos::findOne($_REQUEST['id']);
 
-        self::getTemplate('edit_task', $record);
+        //self::getTemplate('edit_task', $record);
+
 
     }
 
