@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
 
-    <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
@@ -37,7 +37,7 @@
         <div class="form-group row">
             <label for="owneremail" class="col-sm-2 col-form-label">Owner Email:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="owneremail" name="owneremail" value="<?php echo $data->owneremail;?>" readonly>
+                <input type="email" class="form-control" id="owneremail" name="owneremail" value="<?php echo $data->owneremail;?>" readonly>
             </div>
 
             <label for="ownerid" class="col-sm-2 col-form-label">Owner Id:</label>
