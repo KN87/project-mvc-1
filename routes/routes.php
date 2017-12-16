@@ -113,6 +113,7 @@ class routes
         $route->method = 'delete';
         $routes[] = $route;
 
+        //Used to edit logged in user account details
         $route = new route();
         $route->http_method = 'GET';
         $route->action = 'edit';
@@ -198,6 +199,8 @@ class routes
         $route->controller = 'accountsController';
         $route->method = 'logout';
         $routes[] = $route;
+
+
 
 
 

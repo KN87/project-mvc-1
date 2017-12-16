@@ -14,10 +14,9 @@ class accountsController extends http\controller
     //each method in the controller is named an action.
     //to call the show function the url is index.php?page=task&action=show
     public static function show()
-    { //Changed to use session id for logged in user -KEKA
-        session_start();
-        $sessionId = $_SESSION["userID"];
-        $record = accounts::findOne($sessionId);
+    { //Shows account related to view link id
+
+        $record = accounts::findOne($_REQUEST['id']);
         self::getTemplate('show_account', $record);
     }
 
@@ -89,8 +88,10 @@ class accountsController extends http\controller
     }
 
     public static function edit()
-    {
-        $record = accounts::findOne($_REQUEST['id']);
+    {   //Added to edit logged in user account details
+        session_start();
+        $sessionId = $_SESSION["userID"];
+        $record = accounts::findOne($sessionId);
 
         self::getTemplate('edit_account', $record);
 
@@ -111,10 +112,21 @@ class accountsController extends http\controller
     }
 
     public static function delete() {
+        session_start();
+        $sessionId = $_SESSION["userID"];
+        echo '$sessionId -> '.$sessionId;
+        echo '$_REQUEST -> '.$_REQUEST['id'];
 
         $record = accounts::findOne($_REQUEST['id']);
+
         $record->delete();
-        header("Location: index.php?page=accounts&action=all");
+        //Added to check if own account is deleted
+        if($sessionId== $_REQUEST['id']){
+            header("Location: index.php?message=Account deleted..Please register again");
+        }
+        else{
+            header("Location: index.php?page=accounts&action=all");
+        }
     }
 
     //this is to login, here is where you find the account and allow login or deny.
