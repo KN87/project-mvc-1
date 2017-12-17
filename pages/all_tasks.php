@@ -27,6 +27,7 @@
 <div class="container" align="center">
     <div class="table-responsive">
     <form action="index.php?page=todos&action=delete" method="POST">
+        <h3><u> VIEW MY TO-DO DETAILS </u></h3>
     <table class="table table-bordered">
     <?php
     //this is how you print something
