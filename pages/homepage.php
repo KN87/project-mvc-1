@@ -22,7 +22,8 @@
 
     <!-- Bootstrap core CSS
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
     <!-- Custom styles for this template
     <link href="signin.css" rel="stylesheet"> -->
@@ -35,7 +36,6 @@
 <body>
 
 
-
 <div class="container" align="center" style="border:1px solid #cecece">
 
     <form class="form-signin" action="index.php?page=accounts&action=login" method="POST">
@@ -46,9 +46,7 @@
         Added to display success message Keka
         -->
         <p><br>
-            <!--
-           Added to display success message Keka
-           -->
+
             <?php
             if(!empty($_GET['message'])) {
                 $message = $_GET['message'];
@@ -65,12 +63,6 @@
 
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="password" placeholder="Password" required>
-
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
 
         <button class="btn btn-primary" type="submit">Sign in</button>
     </form>
