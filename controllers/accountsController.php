@@ -98,7 +98,20 @@ class accountsController extends http\controller
     }
 //this is used to save the update form data
     public static function save() {
+
+        session_start();
+        $sessionId = $_SESSION["userID"];
+        echo '$sessionId -> '.$sessionId;
+        echo '$_REQUEST -> '.$_REQUEST['id'];
+        echo '<br>';
+
         $user = accounts::findOne($_REQUEST['id']);
+
+        //print_r($user->email);
+        //print_r($_POST['email']);
+        $prevEmail = $user->email;
+        $newEmail = $_POST['email'];
+
 
         $user->email = $_POST['email'];
         $user->fname = $_POST['fname'];
@@ -107,7 +120,21 @@ class accountsController extends http\controller
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
         $user->save();
-        header("Location: index.php?page=accounts&action=all");
+
+        //Check added to re-login user if user has changed his own email id
+        if(($sessionId== $_REQUEST['id']) && ($prevEmail != $newEmail)){
+           // echo 'IF';
+            header("Location: index.php?message=User Email Updated.Please login with new Email");
+        }
+
+        else{
+            echo 'ELSE';
+            header("Location: index.php?page=accounts&action=all");
+        }
+
+
+
+
 
     }
 
@@ -144,6 +171,7 @@ class accountsController extends http\controller
 
         if ($user == FALSE) {
             echo 'user not found';
+            header("Location: index.php?message=** Invalid User Email id !! **");
         } else {
 
             if($user->checkPassword($_POST['password']) == TRUE) {
@@ -162,6 +190,7 @@ class accountsController extends http\controller
                 header("Location: index.php?page=accounts&action=welcome&fname=$fname&lname=$lname");
             } else {
                 echo 'password does not match';
+                header("Location: index.php?message=** Incorrect Password !! **");
             }
 
         }
