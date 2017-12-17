@@ -16,7 +16,7 @@
 <body>
 
 <div class="container" align="center" style="border:1px solid #cecece">
-<form action="index.php?page=accounts&action=register" method="post">
+<form action="index.php?page=accounts&action=register"  method="post">
     <br>
     <h3><u> REGISTRATION FORM </u></h3>
 
@@ -38,7 +38,7 @@
 
         <label for="phone" class="col-sm-2 col-form-label">Phone:</label>
         <div class="col-sm-10">
-            <input type="number" pattern="\d{3}[\-]\d{3}[\-]\d{4}" class="form-control" id="phone" name="phone" placeholder="XXX-XXX-XXXX">
+            <input type="tel" pattern="\d{3}[\-]\d{3}[\-]\d{4}" class="form-control" id="phone" name="phone" maxlength="12" placeholder="XXX-XXX-XXXX">
         </div>
 
         <label for="birthday" class="col-sm-2 col-form-label">Enter Birthday:</label>
@@ -77,6 +77,11 @@
 </form>
 </div>
 
-<script src="js/scripts.js"></script>
+<script src="js/scripts.js">
+
+
+
+
+</script>
 </body>
 </html>
