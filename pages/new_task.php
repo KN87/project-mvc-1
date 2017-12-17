@@ -31,7 +31,7 @@ $ownerId = $_SESSION["userID"];
         <div class="form-group row">
             <label for="owneremail" class="col-sm-2 col-form-label">Owner Email:</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="owneremail" name="owneremail" placeholder="Enter Email xyz@abc.com">
+                <input type="email" class="form-control" id="owneremail" name="owneremail" placeholder="Enter Email xyz@abc.com" required>
             </div>
 
             <label for="ownerid" class="col-sm-2 col-form-label">Owner Id:</label>
@@ -41,23 +41,23 @@ $ownerId = $_SESSION["userID"];
 
             <label for="cdate" class="col-sm-2 col-form-label">Created Date:</label>
             <div class="col-sm-10">
-                <input type="date" class="form-control" id="cdate" name="cdate" placeholder="Choose date">
+                <input type="text" class="form-control" id="cdate" name="cdate" value="<?php date_default_timezone_set("America/New_York"); echo date("Y/m/d"); ?>" readonly>
             </div>
 
             <label for="duedate" class="col-sm-2 col-form-label">Due Date:</label>
             <div class="col-sm-10">
-                <input type="date" class="form-control" id="duedate" name="duedate" placeholder="Choose date">
+                <input type="date" class="form-control" id="duedate" name="duedate" placeholder="Choose date" required>
             </div>
 
             <label for="msg" class="col-sm-2 col-form-label">Message:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="msg" name="msg" placeholder="Enter message">
+                <input type="text" class="form-control" id="msg" name="msg" maxlength="20" placeholder="Enter message" required>
             </div>
 
             <label for="done" class="col-sm-2 col-form-label">Is Done:</label>
             <div class="col-sm-10" align="left">
-                <label class="radio-inline"><input type="radio" id="done" name="done" value="0"> 0 </label>
-                <label class="radio-inline"><input type="radio" id="done" name="done" value="1"> 1 </label>
+                <label class="radio-inline"><input type="radio" id="done" name="done" value="0" required> 0 </label>
+                <label class="radio-inline"><input type="radio" id="done" name="done" value="1" required> 1 </label>
 
             </div>
 
