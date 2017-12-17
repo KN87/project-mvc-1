@@ -8,7 +8,8 @@ class htmlTable
     public static function genarateTableFromMultiArray($array)
     {
 
-        $tableGen = '<table border="1"cellpadding="15" width="100%">';
+        $tableGen = '<table border="1"cellpadding="15" width="100%" style="word-wrap:break-word;
+              table-layout: fixed;">';
         $tableGen .= '<tr>';
         //$tableGen .= '<th><input type="checkbox" id="select_all" /></th>';
         //this grabs the first element of the array so we can extract the field headings for the table
